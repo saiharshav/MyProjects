@@ -18,7 +18,7 @@ public class loginStepDefinition {
 	@Given("^User navigated to the url$")
 	public void url_page() {
 		String ProjPath = System.getProperty("user.dir");
-	    System.setProperty("webdriver.chrome.driver",ProjPath+"src/main/resources/Drivers");
+	    System.setProperty("webdriver.chrome.driver",ProjPath+"/src/test/resources/Drivers");
 	    driver = new ChromeDriver();
 	    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	    driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
