@@ -16,15 +16,17 @@ public class loginStepDefinition {
 
 	WebDriver driver = null;
 	@Given("^User navigated to the url$")
-	public void url_page() {
+	public void url_page() throws InterruptedException {
 		String ProjPath = System.getProperty("user.dir");
-	    System.setProperty("webdriver.chrome.driver",ProjPath+"/src/test/resources/Drivers");
+	    System.setProperty("webdriver.chrome.driver",ProjPath+"/src/test/resources/Drivers/chromedriver.exe");
 	    driver = new ChromeDriver();
 	    driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 	    driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
 	    driver.manage().window().maximize();
 	    driver.navigate().to("https://google.com");
+	    Thread.sleep(2000);
 	    driver.findElement(By.className("gLFyf")).sendKeys("Automation Step by Step");
+	    Thread.sleep(2000);
 	    driver.findElement(By.className("gLFyf")).sendKeys(Keys.ENTER);
 	    driver.getPageSource().contains("Online Courses");
 	    driver.close();
